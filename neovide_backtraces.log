@@ -1,0 +1,35 @@
+2023-08-11 18:57:11 - Neovide panicked with the message 'Could not create surface'. (File: src/renderer/rendered_window.rs; Line: 82, Column: 6)
+   0: __mh_execute_header
+   1: __mh_execute_header
+   2: __mh_execute_header
+   3: __mh_execute_header
+   4: __mh_execute_header
+   5: __mh_execute_header
+   6: __mh_execute_header
+   7: __mh_execute_header
+   8: __mh_execute_header
+   9: __mh_execute_header
+  10: __mh_execute_header
+  11: __mh_execute_header
+  12: __mh_execute_header
+  13: __mh_execute_header
+  14: __mh_execute_header
+  15: __mh_execute_header
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: <unknown>
+  23: <unknown>
+  24: <unknown>
+  25: <unknown>
+  26: __mh_execute_header
+  27: __mh_execute_header
+  28: __mh_execute_header
+  29: __mh_execute_header
+  30: __mh_execute_header
+  31: __mh_execute_header
+  32: <unknown>
+
