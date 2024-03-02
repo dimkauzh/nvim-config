@@ -3,16 +3,10 @@ local overrides = require("custom.configs.overrides")
 ---@type NvPluginSpec[]
 local plugins = {
     {
-    "lithammer/nvim-pylance"
-    },
-    {
     "akinsho/toggleterm.nvim"
     },
     {
     "andweeb/presence.nvim"
-    },
-    {
-    'karb94/neoscroll.nvim'
     },
     {
     'averms/black-nvim'
@@ -24,11 +18,6 @@ local plugins = {
     "ellisonleao/glow.nvim",
      config = true,
      cmd = "Glow"
-    },
-    {
-    "neoclide/coc.nvim",
-    branch = "master",
-    build = "yarn install --frozen-lockfile",
     },
     {
     "Exafunction/codeium.vim"
