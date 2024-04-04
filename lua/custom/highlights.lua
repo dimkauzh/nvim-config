@@ -16,7 +16,18 @@ M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
 }
 
-vim.cmd("au ColorScheme * hi Normal guibg=NONE ctermbg=NONE")
-vim.cmd("au ColorScheme * hi SignColumn guibg=NONE ctermbg=NONE")
+-- Define a function to set the transparency of NERDTree
+function set_transparency()
+    vim.cmd("hi Normal guibg=none ctermbg=none guifg=none ctermfg=none gui=NONE cterm=NONE")
+    vim.cmd("hi NonText guibg=none ctermbg=none guifg=none ctermfg=none gui=NONE cterm=NONE")
+    vim.cmd("hi NvimTreeNormal guibg=NONE ctermbg=NONE")
+    vim.cmd("hi NvimTreeNormalNC guibg=NONE ctermbg=NONE")
+end
+
+-- Call the function on VimEnter, BufEnter, and WinEnter events
+vim.cmd("autocmd VimEnter * lua set_transparency()")
+vim.cmd("autocmd BufEnter * lua set_transparency()")
+vim.cmd("autocmd WinEnter * lua set_transparency()")
+
 
 return M
