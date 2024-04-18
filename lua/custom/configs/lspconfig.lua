@@ -13,3 +13,11 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- Automatically run gofmt on save for Go files
+vim.api.nvim_exec([[
+  augroup GoAutoFormat
+    autocmd!
+    autocmd BufWritePre *.go :silent! execute ':%!gofmt'
+  augroup END
+]], false)
+
