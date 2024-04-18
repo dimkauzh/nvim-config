@@ -7,7 +7,19 @@ M.general = {
   },
 }
 
--- Gpaste
+-- Xclip support
+if vim.fn.executable('xclip') == 1 then
+  vim.opt.clipboard = "unnamedplus"
+
+  vim.api.nvim_exec([[
+    augroup YankToClipboard
+      autocmd!
+      autocmd TextYankPost * silent! lua vim.fn.system('xclip -selection clipboard', vim.fn.getreg('"'))
+    augroup END
+  ]], false)
+end
+
+-- Gpaste support
 if vim.fn.executable('gpaste-client') == 1 then
     vim.g.clipboard = {
         name = 'gpaste',
@@ -28,7 +40,6 @@ end
 vim.keymap.set('n', '<D-s>', ':w<CR>')
 
 -- Copy and paste Setup
-
 if vim.g.neovide then
   vim.keymap.set('v', '<D-c>', '"+y') -- Copy
   vim.keymap.set('n', '<D-v>', '"+P') -- Paste normal mode
@@ -39,7 +50,6 @@ end
 
 
 -- Change size at runtime
-
 vim.g.neovide_scale_factor = 1.0
 local change_scale_factor = function(delta)
   vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
