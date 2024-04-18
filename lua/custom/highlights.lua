@@ -24,10 +24,11 @@ function set_transparency()
     vim.cmd("hi NvimTreeNormalNC guibg=NONE ctermbg=NONE")
 end
 
--- Call the function on VimEnter, BufEnter, and WinEnter events
-vim.cmd("autocmd VimEnter * lua set_transparency()")
-vim.cmd("autocmd BufEnter * lua set_transparency()")
-vim.cmd("autocmd WinEnter * lua set_transparency()")
-
+if transparency == true then
+  -- Call the function on VimEnter, BufEnter, and WinEnter events
+  vim.cmd("autocmd VimEnter * lua set_transparency()")
+  vim.cmd("autocmd BufEnter * lua set_transparency()")
+  vim.cmd("autocmd WinEnter * lua set_transparency()")
+end
 
 return M
