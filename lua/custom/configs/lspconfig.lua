@@ -1,9 +1,8 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
+local lspconfig = require("lspconfig")
 
--- if you just want default config for the servers then put them in a table
 local servers = { "clangd", "gopls", "pyright" }
 
 for _, lsp in ipairs(servers) do
@@ -13,11 +12,12 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- Automatically run gofmt on save for Go files
-vim.api.nvim_exec([[
-  augroup GoAutoFormat
-    autocmd!
-    autocmd BufWritePre *.go :silent! execute ':%!gofmt'
-  augroup END
-]], false)
-
+if vim.fn.executable('gofmt') == 1 then
+  -- Automatically run gofmt on save for Go files
+  vim.api.nvim_exec([[
+    augroup GoAutoFormat
+      autocmd!
+      autocmd BufWritePre *.go let save_cursor = getpos(".") | execute '%!gofmt' | call setpos('.', save_cursor)
+    augroup END
+  ]], false)
+end
