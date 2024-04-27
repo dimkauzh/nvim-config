@@ -21,10 +21,12 @@ M.add = {
 
 -- Define a function to set the transparency of NERDTree
 function set_transparency()
-    vim.cmd("hi Normal guibg=none ctermbg=none guifg=none ctermfg=none gui=NONE cterm=NONE")
-    vim.cmd("hi NonText guibg=none ctermbg=none guifg=none ctermfg=none gui=NONE cterm=NONE")
-    vim.cmd("hi NvimTreeNormal guibg=NONE ctermbg=NONE")
-    vim.cmd("hi NvimTreeNormalNC guibg=NONE ctermbg=NONE")
+  vim.cmd("hi Normal guibg=none ctermbg=none guifg=none ctermfg=none gui=NONE cterm=NONE")
+  vim.cmd("hi NonText guibg=none ctermbg=none guifg=none ctermfg=none gui=NONE cterm=NONE")
+  vim.cmd("hi NvimTreeNormal guibg=NONE ctermbg=NONE")
+  vim.cmd("hi NvimTreeNormalNC guibg=NONE ctermbg=NONE")
+  vim.cmd("hi NvimTreeCursorLine guibg=NONE ctermbg=NONE")
+  vim.cmd("hi NvimTreeWinSeparator guibg=NONE ctermbg=NONE")
 end
 
 if transparency == true then
