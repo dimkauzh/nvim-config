@@ -2,7 +2,7 @@
 -- Each highlight group can take a table with variables fg, bg, bold, italic, etc
 -- base30 variable names can also be used as colors
 
-local transparency = false
+local transparency = true
 
 
 local M = {}
