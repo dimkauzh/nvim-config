@@ -9,18 +9,12 @@ local plugins = {
     "andweeb/presence.nvim"
     },
     {
-    'averms/black-nvim'
-    },
-    {
     'neovim/nvim-lspconfig'
     },
     {
     "ellisonleao/glow.nvim",
      config = true,
      cmd = "Glow"
-    },
-    {
-    "Exafunction/codeium.vim"
     },
     {
     "neovim/nvim-lspconfig",

@@ -19,6 +19,7 @@ if vim.fn.executable('xclip') == 1 then
   ]], false)
 end
 
+-- Automatically run LazyLoadAll when Neovim starts
 -- Gpaste support
 if vim.fn.executable('gpaste-client') == 1 then
     vim.g.clipboard = {
@@ -74,6 +75,5 @@ vim.api.nvim_set_keymap('n', '<C-W>', ':ToggleTerm direction=float<CR>', { norem
 vim.api.nvim_set_keymap('n', '<C-x>', ':ToggleTerm direction=float<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-P>', ':Lazy load all<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-m>', ':Glow<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-Tab>', 'codeium#Accept', { noremap = true, silent = true })
 
 return M

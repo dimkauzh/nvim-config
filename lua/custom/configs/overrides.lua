@@ -1,43 +1,35 @@
 local M = {}
 
+-- Code color
 M.treesitter = {
   ensure_installed = {
     "vim",
     "lua",
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "tsx",
     "c",
     "markdown",
     "markdown_inline",
     "go",
     "gomod",
     "gosum",
+    "python"
   },
 }
 
+-- LSP servers
 M.mason = {
   ensure_installed = {
-    -- lua stuff
     "lua-language-server",
     "stylua",
-
-    -- web dev stuff
-    "css-lsp",
+    "gopls",
+    "gofmt",
     "html-lsp",
-    "typescript-language-server",
-    "deno",
-    "prettier",
-
-    -- c/cpp stuff
     "clangd",
     "clang-format",
+    "pyright",
   },
 }
 
--- git support in nvimtree
+-- Git support in nvimtree
 M.nvimtree = {
   git = {
     enable = true,
