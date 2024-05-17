@@ -12,7 +12,7 @@ M.ui = {
   changed_themes = {},
   theme_toggle = { "gruvbox", "one_light" },
   theme = "gruvbox", -- default theme
-  transparency = true,
+  transparency = false,
   lsp_semantic_tokens = false, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 
   -- https://github.com/NvChad/base46/tree/v2.0/lua/base46/extended_integrations
@@ -31,10 +31,10 @@ M.ui = {
 
   ------------------------------- nvchad_ui modules -----------------------------
   statusline = {
-    theme = "minimal", -- default/vscode/vscode_colored/minimal
+    theme = "default", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "round",
+    separator_style = "default",
     overriden_modules = nil,
   },
 
@@ -48,7 +48,7 @@ M.ui = {
 
   -- nvdash (dashboard)
   nvdash = {
-    load_on_startup = true,
+    load_on_startup = false,
 
     header = {
       "           ▄ ▄                   ",
@@ -86,7 +86,6 @@ M.ui = {
 M.plugins = "" -- path i.e "custom.plugins", so make custom/plugins.lua file
 
 M.lazy_nvim = require "plugins.configs.lazy_nvim" -- config for lazy.nvim startup options
-M.lazy_nvim.defaults.lazy = true
 
 M.mappings = require "core.mappings"
 
