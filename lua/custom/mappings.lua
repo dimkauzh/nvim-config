@@ -4,7 +4,21 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    ["<leader>tf"] = { ":ToggleTerm direction=float<CR>", "Open floating terminal", opts = { nowait = true, silent = true } },
+    ["<leader>tc"] = { ":ToggleTerm direction=float<CR>", "Close floating terminal", opts = { nowait = true, silent = true } },
+    ["<leader>gl"] = { ":Glow<CR>", "Run Glow", opts = { nowait = true, silent = true } },
+    ["<leader>te"] = { ":Telescope find_files<CR>", "Open telescope", opts = { nowait = true, silent = true } },
+    ["<leader>ld"] = { ":Lazy load all<CR>", "Lazy load all plugins", opts = { nowait = true, silent = true } },
+
+    -- Dummy to ignore Glow
+    ["<enter>"] = { "", "Ignore glow", opts = { nowait = true, silent = true } }
   },
+  t = {
+    ["<C-x>"] = { function ()
+      vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true)
+      vim.api.nvim_command(":ToggleTerm direction=float<CR>")
+    end, "Close Terminal", opts = { nowait = true, silent = true }}
+  }
 }
 
 -- Xclip support
@@ -36,17 +50,14 @@ if vim.fn.executable('gpaste-client') == 1 then
     }
 end
 
--- Save
-
-vim.keymap.set('n', '<D-s>', ':w<CR>')
-
--- Copy and paste Setup
+-- Copy, paste and safe setup
 if vim.g.neovide then
   vim.keymap.set('v', '<D-c>', '"+y') -- Copy
   vim.keymap.set('n', '<D-v>', '"+P') -- Paste normal mode
   vim.keymap.set('v', '<D-v>', '"+P') -- Paste visual mode
   vim.keymap.set('c', '<D-v>', '<C-R>+') -- Paste command mode
   vim.keymap.set('i', '<D-v>', '<ESC>l"+Pli') -- Paste insert mode
+  vim.keymap.set('n', '<D-s>', ':w<cr>') -- Save in normal mode`
 end
 
 
@@ -68,12 +79,5 @@ vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
-
--- Keys Setup
-vim.api.nvim_set_keymap('n', '<C-Q>', ':Telescope find_files<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-W>', ':ToggleTerm direction=float<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-x>', ':ToggleTerm direction=float<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-P>', ':Lazy load all<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-m>', ':Glow<CR>', { noremap = true, silent = true })
 
 return M
