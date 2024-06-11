@@ -9,6 +9,8 @@ M.general = {
     ["<leader>gl"] = { ":Glow<CR>", "Run Glow", opts = { nowait = true, silent = true } },
     ["<leader>te"] = { ":Telescope find_files<CR>", "Open telescope", opts = { nowait = true, silent = true } },
     ["<leader>ld"] = { ":Lazy load all<CR>", "Lazy load all plugins", opts = { nowait = true, silent = true } },
+    ["<C-c>"] = { "y", "Safe file", opts = { nowait = true, silent = true } },
+
 
     -- Dummy to ignore Glow
     ["<enter>"] = { "", "Ignore glow", opts = { nowait = true, silent = true } }
