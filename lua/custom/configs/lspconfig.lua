@@ -17,14 +17,27 @@ if vim.fn.executable('gofmt') == 1 then
   vim.api.nvim_exec([[
     augroup GoAutoFormat
       autocmd!
-      autocmd BufWritePre *.go let save_view = winsaveview() | execute 'normal! mzgg=G`z' | call winrestview(save_view)
+      autocmd BufWritePre *.go lua GoFmt()
     augroup END
   ]], false)
+
+  function GoFmt()
+    local view = vim.fn.winsaveview()
+    local buf = vim.api.nvim_get_current_buf()
+    local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+    local output = vim.fn.systemlist('gofmt', lines)
+
+    if vim.v.shell_error == 0 then
+      vim.api.nvim_buf_set_lines(buf, 0, -1, false, output)
+    else
+      vim.api.nvim_out_write("gofmt failed: " .. table.concat(output, "\n") .. "\n")
+    end
+    vim.fn.winrestview(view)
+  end
 end
 
 local util = require'lspconfig.util'
 lspconfig.gopls.setup {
-   -- ...some other setups
    root_dir = function(fname)
       -- see: https://github.com/neovim/nvim-lspconfig/issues/804
       local mod_cache = vim.trim(vim.fn.system 'go env GOMODCACHE')

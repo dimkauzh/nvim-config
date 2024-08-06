@@ -35,7 +35,11 @@ if vim.fn.executable('xclip') == 1 then
   ]], false)
 end
 
--- Automatically run LazyLoadAll when Neovim starts
+-- Incase shift/capslock mistakes
+vim.api.nvim_create_user_command('W', 'w<bang>', { bang = true })
+vim.api.nvim_create_user_command('Q', 'q<bang>', { bang = true })
+vim.api.nvim_create_user_command('WQ', 'wq<bang>', { bang = true })
+
 -- Gpaste support
 if vim.fn.executable('gpaste-client') == 1 then
     vim.g.clipboard = {

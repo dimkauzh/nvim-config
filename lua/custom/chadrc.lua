@@ -4,6 +4,9 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
 
+-- Load the dashes
+local dashes = require("lua.custom.dashes")
+
 M.ui = {
   hl_override = highlights.override,
   hl_add = highlights.add,
@@ -12,6 +15,11 @@ M.ui = {
   statusline = {
     theme = "minimal",
     separator_style = "round",
+  },
+
+  nvdash = {
+    load_on_startup = true,
+    header = dashes["pacman"]
   },
 }
 
