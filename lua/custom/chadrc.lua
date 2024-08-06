@@ -5,7 +5,7 @@ local M = {}
 local highlights = require "custom.highlights"
 
 -- Load the dashes
-local dashes = require("lua.custom.dashes")
+local dashes = require("custom.dashes")
 
 M.ui = {
   hl_override = highlights.override,
