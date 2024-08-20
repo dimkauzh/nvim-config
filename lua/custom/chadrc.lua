@@ -19,7 +19,8 @@ M.ui = {
 
   nvdash = {
     load_on_startup = true,
-    header = dashes["pacman"]
+    header = dashes["neovim_4"],
+    buttons = {},
   },
 }
 

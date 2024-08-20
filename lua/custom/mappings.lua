@@ -4,13 +4,14 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>tf"] = { ":ToggleTerm direction=float<CR>", "Open floating terminal", opts = { nowait = true, silent = true } },
+    ["<leader>tt"] = { ":ToggleTerm direction=float<CR>", "Open floating terminal", opts = { nowait = true, silent = true } },
     ["<leader>tc"] = { ":ToggleTerm direction=float<CR>", "Close floating terminal", opts = { nowait = true, silent = true } },
     ["<leader>gl"] = { ":Glow<CR>", "Run Glow", opts = { nowait = true, silent = true } },
-    ["<leader>te"] = { ":Telescope find_files<CR>", "Open telescope", opts = { nowait = true, silent = true } },
-    ["<leader>ld"] = { ":Lazy load all<CR>", "Lazy load all plugins", opts = { nowait = true, silent = true } },
+    ["<leader>tf"] = { ":Telescope find_files<CR>", "Open file telescope", opts = { nowait = true, silent = true } },
+    ["<leader>tl"] = { ":Telescope live_grep<CR>", "Open keyword telescope", opts = { nowait = true, silent = true } },
+    ["<leader>la"] = { ":Lazy load all<CR>", "Lazy load all plugins", opts = { nowait = true, silent = true } },
+    ["<leader>lg"] = { ":LazyGit<CR>", "Open LazyGit", opts = { nowait = true, silent = true } },
     ["<C-c>"] = { "y", "Safe file", opts = { nowait = true, silent = true } },
-
 
     -- Dummy to ignore Glow
     ["<enter>"] = { "", "Ignore glow", opts = { nowait = true, silent = true } }
@@ -20,6 +21,15 @@ M.general = {
       vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true)
       vim.api.nvim_command(":ToggleTerm direction=float<CR>")
     end, "Close Terminal", opts = { nowait = true, silent = true }}
+  },
+  i = {
+    ["<A-/>"] = {
+      function()
+        vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
+      end,
+      "Copilot Accept",
+      opts = {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true},
+    }
   }
 }
 
