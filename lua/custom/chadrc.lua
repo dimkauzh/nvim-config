@@ -27,10 +27,6 @@ M.ui = {
 -- Loading the plugins
 M.plugins = "custom.plugins"
 
--- Preload lazy packages
-M.lazy_nvim = require "plugins.configs.lazy_nvim"
-M.lazy_nvim.defaults.lazy = true
-
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"
 
