@@ -12,6 +12,10 @@ local plugins = {
     'neovim/nvim-lspconfig'
   },
   {
+    'wakatime/vim-wakatime',
+    lazy = false
+  },
+  {
     "ellisonleao/glow.nvim",
      config = true,
      cmd = "Glow"
