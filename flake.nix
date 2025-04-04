@@ -24,13 +24,9 @@
         '';
 
         installPhase = ''
-          cp -r $src/ $out/nvim
+          cp -r $src/* $out/nvim
         '';
       };
-
-      dev = pkgs.writeShellScriptBin "default" ''
-        nvim -u ./init.lua
-      '';
     };
   };
 }
