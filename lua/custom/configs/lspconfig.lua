@@ -5,7 +5,7 @@ local lspconfig = require("lspconfig")
 
 local servers = {
   -- Used
-  "gopls", "nixd", "v-analyzer",
+  "gopls", "nixd",
 
   -- Extra
   "clangd", "pyright", "ols", "zls"
@@ -17,6 +17,9 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+-- Special needs
+lspconfig.v_analyzer.setup{}
 
 if vim.fn.executable('gofmt') == 1 then
   -- Automatically run gofmt on save for Go files
