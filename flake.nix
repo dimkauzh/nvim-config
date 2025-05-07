@@ -1,16 +1,17 @@
 {
   description = "nvim-config package";
-
+  
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "nixpkgs";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs }: 
+  outputs = { self, nixpkgs, flake-utils }:
+  flake-utils.lib.eachDefaultSystem (system:
   let
-    system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
   in {
-    packages.${system} = {
+    packages = {
       default = pkgs.stdenv.mkDerivation {
         pname = "nvim-config";
         version = "1.0.0";
@@ -28,6 +29,6 @@
         '';
       };
     };
-  };
+  });
 }
 
