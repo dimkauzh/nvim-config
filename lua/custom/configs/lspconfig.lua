@@ -5,7 +5,7 @@ local lspconfig = require("lspconfig")
 
 local servers = {
   -- Used
-  "gopls", "nixd", "zls", "rust_analyzer",
+  "gopls", "nixd", "zls", "rust-analyzer",
 
   -- Extra
   "clangd", "pyright", "ols", "v_analyzer"
