@@ -7,10 +7,9 @@ M.general = {
     ["<leader>tt"] = { ":ToggleTerm direction=float<CR>", "Open floating terminal", opts = { nowait = true, silent = true } },
     ["<leader>tc"] = { ":ToggleTerm direction=float<CR>", "Close floating terminal", opts = { nowait = true, silent = true } },
     ["<leader>gl"] = { ":Glow<CR>", "Run Glow", opts = { nowait = true, silent = true } },
-    ["<leader>tf"] = { ":Telescope find_files<CR>", "Open file telescope", opts = { nowait = true, silent = true } },
-    ["<leader>tl"] = { ":Telescope live_grep<CR>", "Open keyword telescope", opts = { nowait = true, silent = true } },
     ["<leader>la"] = { ":Lazy load all<CR>", "Lazy load all plugins", opts = { nowait = true, silent = true } },
     ["<leader>lg"] = { ":LazyGit<CR>", "Open LazyGit", opts = { nowait = true, silent = true } },
+    ["<leader>sp"] = { ":set spell!<CR>", "Set or unset spelling checking", opts = { nowait = true, silent = true } },
     ["<C-c>"] = { "y", "Safe file", opts = { nowait = true, silent = true } },
 
     -- Dummy to ignore Glow
@@ -33,18 +32,6 @@ M.general = {
   }
 }
 
--- Xclip support
-if vim.fn.executable('xclip') == 1 then
-  vim.opt.clipboard = "unnamedplus"
-
-  vim.api.nvim_exec([[
-    augroup YankToClipboard
-      autocmd!
-      autocmd TextYankPost * silent! lua vim.fn.system('xclip -selection clipboard', vim.fn.getreg('"'))
-    augroup END
-  ]], false)
-end
-
 -- Incase shift/capslock mistakes
 vim.api.nvim_create_user_command('W', 'w<bang>', { bang = true })
 vim.api.nvim_create_user_command('Q', 'q<bang>', { bang = true })
@@ -64,6 +51,18 @@ if vim.fn.executable('gpaste-client') == 1 then
         },
         cache_enabled = true,
     }
+end
+
+-- Xclip support
+if vim.fn.executable('xclip') == 1 then
+  vim.opt.clipboard = "unnamedplus"
+
+  vim.api.nvim_exec([[
+    augroup YankToClipboard
+      autocmd!
+      autocmd TextYankPost * silent! lua vim.fn.system('xclip -selection clipboard', vim.fn.getreg('"'))
+    augroup END
+  ]], false)
 end
 
 -- Copy, paste and safe setup
