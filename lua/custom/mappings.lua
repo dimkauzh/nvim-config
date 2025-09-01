@@ -38,7 +38,9 @@ vim.api.nvim_create_user_command('Q', 'q<bang>', { bang = true })
 vim.api.nvim_create_user_command('WQ', 'wq<bang>', { bang = true })
 
 -- Gpaste support
-if vim.fn.executable('gpaste-client') == 1 then
+if vim.fn.executable('wl-copy') == 1 then
+  vim.opt.clipboard = "unnamedplus"
+elseif vim.fn.executable('gpaste-client') == 1 then
     vim.g.clipboard = {
         name = 'gpaste',
         copy = {
@@ -51,10 +53,7 @@ if vim.fn.executable('gpaste-client') == 1 then
         },
         cache_enabled = true,
     }
-end
-
--- Xclip support
-if vim.fn.executable('xclip') == 1 then
+elseif vim.fn.executable('xclip') == 1 then
   vim.opt.clipboard = "unnamedplus"
 
   vim.api.nvim_exec([[
