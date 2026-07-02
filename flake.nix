@@ -19,10 +19,18 @@
       perSystem =
         { system, ... }:
         let
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+
           configuration = nixvim.lib.evalNixvim {
             inherit system;
 
-            modules = [ ./config ];
+            modules = [ 
+              ./config 
+              { _module.args.pkgs = inputs.nixpkgs.lib.mkForce pkgs; }
+            ];
             extraSpecialArgs = {};
           };
         in
