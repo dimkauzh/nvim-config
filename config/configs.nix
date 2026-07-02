@@ -10,13 +10,17 @@
 
   globals = {
     mapleader = " ";
+    gruvbox_material_background = "medium";
   };
 
-  colorschemes.gruvbox-baby = {
+  colorschemes.gruvbox-material = {
     enable = true;
   };
 
   opts = {
+    termguicolors = true;
+    background = "dark";
+
     smartindent = true;
     expandtab = true;
 
