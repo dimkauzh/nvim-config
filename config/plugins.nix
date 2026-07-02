@@ -144,6 +144,7 @@
 
       settings = {
         options = {
+          theme = "gruvbox-material";
           component_separators = "";
           section_separators = { left = ""; right = ""; };
           globalstatus = true;

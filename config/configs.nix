@@ -13,9 +13,7 @@
     gruvbox_material_background = "medium";
   };
 
-  colorschemes.gruvbox-material = {
-    enable = true;
-  };
+  colorschemes.gruvbox-material.enable = true;
 
   opts = {
     termguicolors = true;
