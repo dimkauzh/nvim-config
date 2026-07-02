@@ -5,6 +5,7 @@
     glow.enable = true;
     lazygit.enable = true;
     wakatime.enable = true;
+    colorizer.enable = true;
 
     mini = {
       enable = true;
