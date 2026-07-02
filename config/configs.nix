@@ -21,6 +21,7 @@
 
     smartindent = true;
     expandtab = true;
+    number = true;
 
     tabstop = 2;
     shiftwidth = 2;
