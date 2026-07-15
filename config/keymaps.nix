@@ -1,5 +1,6 @@
 {
   keymaps = [
+    # Neotree
     {
       mode = "n";
       key = "<leader>e";
@@ -18,6 +19,44 @@
         desc = "Toggle Neo-tree";
       };
     }
+
+    # Glow
+    {
+      mode = "n";
+      key = "<leader>gl";
+      action = ":Glow<CR>";
+      options = {
+        desc = "Run Glow";
+        nowait = true;
+        silent = true;
+      };
+    }
+
+    # Lazygit
+    {
+      mode = "n";
+      key = "<leader>lg";
+      action = ":LazyGit<CR>";
+      options = {
+        desc = "Open LazyGit";
+        nowait = true;
+        silent = true;
+      };
+    }
+
+    # Trouble
+    {
+      mode = "n";
+      key = "<leader>td";
+      action = ":Trouble diagnostics toggle<cr>";
+      options = {
+        desc = "Open Trouble Diagnostics";
+        nowait = true;
+        silent = true;
+      };
+    }
+
+    # Nvim native
     {
       mode = "v";
       key = "<leader>/";
@@ -40,16 +79,6 @@
     }
     {
       mode = "n";
-      key = "<leader>lg";
-      action = ":LazyGit<CR>";
-      options = {
-        desc = "Open LazyGit";
-        nowait = true;
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
       key = "<leader>sp";
       action = ":set spell!<CR>";
       options = {
@@ -60,10 +89,20 @@
     }
     {
       mode = "n";
-      key = "<leader>gl";
-      action = ":Glow<CR>";
+      key = "<leader>sv";
+      action = ":vsplit<CR>";
       options = {
-        desc = "Run Glow";
+        desc = "Split buffers vertically";
+        nowait = true;
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>sh";
+      action = ":split<CR>";
+      options = {
+        desc = "Split buffers horizontally";
         nowait = true;
         silent = true;
       };
@@ -116,6 +155,7 @@
     }
   ];
 
+  # Anti-typos
   userCommands = {
     W = {
       command = "w<bang>";

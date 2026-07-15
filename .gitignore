@@ -2,3 +2,5 @@ neovide_backtraces.log
 **.DS_Store
 result
 result/
+.direnv/
+.envrc

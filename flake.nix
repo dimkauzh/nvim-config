@@ -37,6 +37,14 @@
         {
           checks.default = configuration.config.build.test;
           packages.default = configuration.config.build.package;
+
+          devShells.default = pkgs.mkShell {
+            packages = [
+              configuration.config.build.package
+              pkgs.nixfmt
+              pkgs.nixd
+            ];
+          };
         };
     };
 }

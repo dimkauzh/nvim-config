@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   plugins = {
     web-devicons.enable = true;
@@ -6,6 +7,9 @@
     lazygit.enable = true;
     wakatime.enable = true;
     colorizer.enable = true;
+    trouble.enable = true;
+    lsp-lines.enable = true;
+    nvim-autopairs.enable = true;
 
     mini = {
       enable = true;
@@ -63,6 +67,31 @@
         reading_text = "Reading %s";
         workspace_text = "Working on %s";
         line_number_text = "Line %s out of %s";
+      };
+    };
+
+    conform-nvim = {
+      enable = true;
+      settings = {
+        formatters_by_ft = {
+          bash = [ "shfmt" ];
+          make = [ "checkmake" ];
+          markdown = [ "prettierd" "prettier" ];
+          toml = [ "taplo" ];
+          yaml = [ "yamlfmt" ];
+          lua = [ "stylua" ];
+          zig = [ "zigfmt" ];
+          nix = [ "nixfmt" ];
+          go = [ "gofmt" "goimports" ];
+          python = [ "black" ];
+          typescript = [ "prettierd" "prettier" ];
+          c = [ "clang-format" ];
+          cpp = [ "clang-format" ];
+        };
+        format_on_save = {
+          lsp_format = "fallback";
+          timeout_ms = 500;
+        };
       };
     };
 
@@ -126,6 +155,7 @@
         };
 
         filesystem = {
+          useLibuvFileWatcher = true;
           filtered_items = {
             visible = true; 
             show_hidden = true;
@@ -294,4 +324,16 @@
       ];
     };
   };
+
+  extraPlugins = [
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "smart-paste-nvim";
+      src = pkgs.fetchFromGitHub {
+        owner = "nemanjamalesija";
+        repo = "smart-paste.nvim";
+        rev = "7eef31499d910959fe94bb1a99dcdae6eb30f90b";
+        hash = "sha256-N5R3E2aOm8Fz7OIqah05pZYn+MT3tnPxRN6KA/7Y+bM=";
+      };
+    })
+  ];
 }

@@ -8,6 +8,11 @@
     };
   };
 
+  diagnostic.settings = {
+    virtual_text = false;
+    virtual_lines.current_line = true;
+  };
+
   globals = {
     mapleader = " ";
     gruvbox_material_background = "medium";
@@ -27,4 +32,8 @@
     shiftwidth = 2;
     softtabstop = 2;
   };
+
+  extraConfigLua = ''
+    require('smart-paste').setup()
+  '';
 }
