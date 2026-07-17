@@ -10,11 +10,35 @@
     trouble.enable = true;
     lsp-lines.enable = true;
     nvim-autopairs.enable = true;
+    cmp-nvim-lsp.enable = true;
+    cmp-path.enable = true;
+    cmp-buffer.enable = true;
+
+    cmp = {
+      enable = true;
+      settings = {
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
+
+        mapping = {
+          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+          "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+          "<C-n>" = "cmp.mapping.select_next_item()";
+          "<C-p>" = "cmp.mapping.select_prev_item()";
+
+          "<C-e>" = "cmp.mapping.abort()";
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+        };
+      };
+    };
 
     mini = {
       enable = true;
       modules = {
-        bufremove = {};
+        bufremove = { };
       };
     };
 
@@ -25,6 +49,15 @@
           close_command = "Bdelete! %d";
           right_mouse_command = "Bdelete! %d";
         };
+      };
+    };
+
+    neotest = {
+      enable = true;
+      adapters = {
+        go.enable = true;
+        python.enable = true;
+        zig.enable = true;
       };
     };
 
@@ -45,7 +78,7 @@
         clangd.enable = true;
       };
     };
-    
+
     presence = {
       enable = true;
       settings = {
@@ -76,15 +109,24 @@
         formatters_by_ft = {
           bash = [ "shfmt" ];
           make = [ "checkmake" ];
-          markdown = [ "prettierd" "prettier" ];
+          markdown = [
+            "prettierd"
+            "prettier"
+          ];
           toml = [ "taplo" ];
           yaml = [ "yamlfmt" ];
           lua = [ "stylua" ];
           zig = [ "zigfmt" ];
           nix = [ "nixfmt" ];
-          go = [ "gofmt" "goimports" ];
+          go = [
+            "gofmt"
+            "goimports"
+          ];
           python = [ "black" ];
-          typescript = [ "prettierd" "prettier" ];
+          typescript = [
+            "prettierd"
+            "prettier"
+          ];
           c = [ "clang-format" ];
           cpp = [ "clang-format" ];
         };
@@ -122,7 +164,7 @@
           };
         };
       };
-      
+
       keymaps = {
         "<leader>tg" = {
           action = "git_files";
@@ -157,7 +199,7 @@
         filesystem = {
           useLibuvFileWatcher = true;
           filtered_items = {
-            visible = true; 
+            visible = true;
             show_hidden = true;
             hide_dotfiles = false;
             hide_gitignored = false;
@@ -177,7 +219,10 @@
         options = {
           theme = "gruvbox-material";
           component_separators = "";
-          section_separators = { left = ""; right = ""; };
+          section_separators = {
+            left = "";
+            right = "";
+          };
           globalstatus = true;
         };
 
@@ -186,8 +231,13 @@
             {
               __unkeyed-1 = "mode";
               icon = "";
-              separator = { left = ""; };
-              padding = { left = 1; right = 2; };
+              separator = {
+                left = "";
+              };
+              padding = {
+                left = 1;
+                right = 2;
+              };
             }
           ];
           lualine_b = [
@@ -215,8 +265,13 @@
           lualine_z = [
             {
               __unkeyed-1 = "location";
-              separator = { right = ""; };
-              padding = { left = 2; right = 1; };
+              separator = {
+                right = "";
+              };
+              padding = {
+                left = 2;
+                right = 1;
+              };
             }
           ];
         };
@@ -239,7 +294,7 @@
       settings.layout = [
         {
           type = "padding";
-          val = 8; 
+          val = 8;
         }
         {
           type = "text";
@@ -257,12 +312,12 @@
           ];
           opts = {
             position = "center";
-            hl = "Type"; 
+            hl = "Type";
           };
         }
         {
           type = "padding";
-          val = 2; 
+          val = 2;
         }
         {
           type = "group";

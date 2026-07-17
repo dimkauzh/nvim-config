@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: 
+{ pkgs, config, ... }:
 {
   extraPackages = with pkgs; [
     # Utilities
@@ -7,18 +7,18 @@
     lazygit
 
     # LSPs
-    bash-language-server 
-    cmake-language-server             
-    marksman                          
-    taplo                             
-    yaml-language-server              
-    lua-language-server               
-    zls                               
-    nixd                              
-    gopls                             
-    pyright                           
+    bash-language-server
+    cmake-language-server
+    marksman
+    taplo
+    yaml-language-server
+    lua-language-server
+    zls
+    nixd
+    gopls
+    pyright
     typescript-language-server
-    clang-tools                       
+    clang-tools
   ];
 
   extraPlugins = with pkgs.vimPlugins; [
@@ -26,7 +26,18 @@
   ];
 
   plugins.treesitter.grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
-    bash make markdown toml yaml
-    lua zig nix go python typescript c cpp
+    bash
+    make
+    markdown
+    toml
+    yaml
+    lua
+    zig
+    nix
+    go
+    python
+    typescript
+    c
+    cpp
   ];
 }

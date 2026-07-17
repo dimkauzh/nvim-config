@@ -20,6 +20,44 @@
       };
     }
 
+    # Neotest
+    {
+      mode = "n";
+      key = "<leader>tn";
+      action.__raw = "function() require('neotest').run.run() end";
+      options = {
+        silent = true;
+        desc = "Run nearest test";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>tf";
+      action.__raw = "function() require('neotest').run.run(vim.fn.expand('%')) end";
+      options = {
+        silent = true;
+        desc = "Run current file";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ts";
+      action.__raw = "function() require('neotest').summary.toggle() end";
+      options = {
+        silent = true;
+        desc = "Toggle test summary panel";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>to";
+      action.__raw = "function() require('neotest').output_panel.toggle() end";
+      options = {
+        silent = true;
+        desc = "Toggle test output panel";
+      };
+    }
+
     # Glow
     {
       mode = "n";
@@ -57,6 +95,24 @@
     }
 
     # Nvim native
+    {
+      mode = "n";
+      key = "<leader>wv";
+      action = "<C-w>H";
+      options = {
+        silent = true;
+        desc = "Move active window to vertical split";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>wh";
+      action = "<C-w>K";
+      options = {
+        silent = true;
+        desc = "Move active window to horizontal split";
+      };
+    }
     {
       mode = "v";
       key = "<leader>/";
@@ -107,6 +163,7 @@
         silent = true;
       };
     }
+
     {
       mode = "n";
       key = "<C-c>";

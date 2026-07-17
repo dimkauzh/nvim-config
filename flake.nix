@@ -27,11 +27,11 @@
           configuration = nixvim.lib.evalNixvim {
             inherit system;
 
-            modules = [ 
-              ./config 
+            modules = [
+              ./config
               { _module.args.pkgs = inputs.nixpkgs.lib.mkForce pkgs; }
             ];
-            extraSpecialArgs = {};
+            extraSpecialArgs = { };
           };
         in
         {
